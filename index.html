@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section>
+          <span>Creating Basic Characters in JavaScript</span>
+          <p>By: Anthony McMellen</p>
+          <section>
+            <p>The characters are gonna be used in turn based combat systems like Final Fantasy or Pokemon</p>
+          </section>
+        </section>
+				<section>
+          <span><strong>Each character will be a JavaScript "Class"</strong></span>
+          <section>
+            <p>Classes are a collection of information about what a thing is and what it can do</p>
+          </section>
+          <section>
+            <h5>So for our character, the Class will hold these:</h5>
+            <ul>
+              <li>HP</li>
+              <li>ATK</li>
+              <li>DEF</li>
+              <li>MP</li>
+            </ul>
+          </section>
+          <section>
+            <span>It will also hold things like spells or attacks and how they will behave.</span>
+          </section>
+        </section>
+        <section>
+          <span>To get started, we put the Class into the story javascript file</span>
+          <section>
+            <code>
+              <pre>
+                class BlackMage{
+
+                }
+              </pre>
+            </code>
+          </section>
+        </section>
+        <section>
+          <h5>Next we give the character the stats that we mentioned before</h5>
+          <section>
+            <h5>For this we are gonna use "constructor()" which says what you need to input.</h5>
+            <span>in this example, I made numbers for each stat to make it easier</span>
+          </section>
+          <section>
+            <code>
+              <pre>
+              class BlackMage{
+                constructor(HP=1243, MP=1647, DEF=60, ATK=100){
+                  this.HP = HP;
+                  this.MP = MP;
+                  this.DEF = DEF;
+                  this.ATK = ATK;
+                }
+              }
+              </pre>
+            </code>
+          </section>
+        </section>
+        <section>
+          <h5>Now that we have the stats for the character we can add an attack.</h5>
+          <section>
+            <span>I'll add the spell "Firaga" to this class. it is going to be a set of instructions called a function.</span>
+            <p>The function should look like this:</p>
+            <code>
+              <pre>
+                firaga(target){
+                  target.HP -= (some amount of health)
+                  this.MP -=24;
+                }
+              </pre>
+            </code>
+          </section>
+          <section>
+            <p>(target) is the person you are trying to hit. in this function, you are doing damage to the target and you are using mp to do it.</p>
+          </section>
+        </section>
+        <section>
+         <h5>Now that we have that lets see what it should look like when you put it all together:</h5> 
+         <section>
+           <code>
+            <pre>
+            class BlackMage{
+              constructor(HP=1243, MP=1647, DEF=60, SPR=100){
+                this.HP = HP;
+                this.MP = MP;
+                this.DEF = DEF;
+                this.SPR = SPR;
+
+                firaga(target){
+                  target.HP -= (some amount of health)
+                  this.MP -=24;
+                }
+              }
+            }
+            </pre>
+          </code>
+         </section>
+        </section>
+        <section>
+          <h5>And there you have it. A simple character for a turn based battle system</h5>
+        </section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				hash: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/highlight/highlight.js' },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
